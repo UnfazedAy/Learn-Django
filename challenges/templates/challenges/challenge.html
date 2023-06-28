@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_file %}
+  <link rel="stylesheet" href="{% static 'challenges/challenge.css' %}">
+  <link rel="stylesheet" href="{% static 'challenges/includes/header.css' %}">
+{% endblock %}
+
+{% block title %}
+  {{ month_name|title }} Challenge
+{% endblock %}
+
+{% block content %}
+  {% comment %} Partial Inheritance {% endcomment %}
+  {% include "challenges/includes/header.html" %}
+
+  <h1>{{ month_name|title }} Challenge</h1>
+  {% if text %}
+    <h2>{{ text }}</h2>
+  {% else %}
+    <p>No challenge for this month yet</p>
+  {% endif %}
+{% endblock %}

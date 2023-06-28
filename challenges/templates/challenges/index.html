@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_file %}
+  <link rel="stylesheet" href="{% static 'challenges/challenges.css' %}">
+  <link rel="stylesheet" href="{% static 'challenges/includes/header.css' %}">
+{% endblock %}
+
+{% block title %}
+  Monthly Challenges
+{% endblock %}
+
+{% block content %}
+  {% comment %} Partial Inheritance {% endcomment %}
+  {% include "challenges/includes/header.html" %}
+
+  <ul>
+    {% for month in months %}
+      <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
